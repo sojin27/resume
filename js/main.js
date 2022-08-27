@@ -1,28 +1,11 @@
 $(document).ready(function (){
-
-    var windowHeight = $(window).height();
-
-    var fixStart = $(".portfolio .wrap").offset().top - 61;
-    var leftOffset = $(".portfolio .wrap").offset().left - 300;
-
-    $(window).on("scroll", function(){
-        var scrollPoisition = $(this).scrollTop();
-
-        if(scrollPoisition >= fixStart){
-            $(".control-box").css({
-                "position" : "fixed",
-                "top" : 121,
-                "left" : leftOffset
-            });
-        } else {
-            $(".control-box").css({
-                "position" : "absolute",
-                "top" : "0",
-                "left" : "-300px"
-            });
-        }
-    });
-
+    
+    window.onload = function(){
+        setTimeout (function(){
+            scrollTo(0,0);
+        },100);
+    }
+    
     $("header .btn-nav").on("click", function(){
         $(this).toggleClass("on");
         $("header nav").slideToggle(400);
@@ -37,6 +20,8 @@ $(document).ready(function (){
     $("nav li").on("click", function(){
         var i = $(this).index();
         $(this).addClass("on").siblings().removeClass("on");
+        $("nav").slideUp(200);
+        $("header .btn-nav").removeClass("on");
         if(i === 0){
             var sectionTop = $(".home").offset().top;
             $("html, body").animate({
@@ -83,8 +68,17 @@ $(document).ready(function (){
             $("html, body").animate({
                 "scrollTop" : sectionTop
             }, 350);
+        } else if(i === 2){
+            var sectionTop = $(".vans-wrap").offset().top - 171;
+            $("html, body").animate({
+                "scrollTop" : sectionTop
+            }, 350);
+        } else if(i === 3){
+            var sectionTop = $(".aesop-wrap").offset().top - 171;
+            $("html, body").animate({
+                "scrollTop" : sectionTop
+            }, 350);
         }
     });
-
-
+    
 });
