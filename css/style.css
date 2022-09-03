@@ -386,8 +386,12 @@ header nav .nav-wrap ul li.on::before{
 .portfolio .contents-wrap .overview .con1,
 .portfolio .contents-wrap .overview .con2{
     margin-bottom: 10px;
-    
 }
+.portfolio .contents-wrap .participant .con1,
+.portfolio .contents-wrap .participant .con2{
+    margin-bottom: 10px;
+}
+
 .portfolio .contents-wrap .color .color-box{
     display: flex;
 }
